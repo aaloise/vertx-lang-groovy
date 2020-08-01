@@ -52,6 +52,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 /**
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
