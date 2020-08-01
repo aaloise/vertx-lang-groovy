@@ -3,7 +3,7 @@ branches:
   only:
   - master
   - /^\d+\.\d+$/
-  - /^\d+\.\d+\-\w$/
+  - 3.9-groovy304
 cache:
   directories:
     - $HOME/.m2
