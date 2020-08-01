@@ -51,6 +51,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 import java.util.List;
+import java.util.ArrayList;
 
 
 /**
@@ -81,7 +82,7 @@ public class VertxTransformation implements ASTTransformation {
   }
 
   private void visit(ModuleNode moduleNode, SourceUnit sourceUnit) {
-    List<ImportNode> cloneImports = moduleNode.getImports().stream().collect(toList());    
+    List<ImportNode> cloneImports = new ArrayList<ImportNode>(moduleNode.getImports());    
     moduleNode.getImports().clear();
     for (ImportNode importNode : cloneImports) {
       if (shouldTransformClass(importNode.getType())) {
