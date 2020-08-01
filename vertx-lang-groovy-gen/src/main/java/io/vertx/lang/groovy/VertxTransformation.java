@@ -50,6 +50,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
@@ -79,7 +81,8 @@ public class VertxTransformation implements ASTTransformation {
   }
 
   private void visit(ModuleNode moduleNode, SourceUnit sourceUnit) {
-    List<ImportNode> cloneImports = moduleNode.getImports().clone();
+    List<ImportNode> cloneImports = new ArrayList<ImportNode>();
+    Collections.copy(cloneImports, moduleNode.getImports());    
     moduleNode.getImports().clear();
     for (ImportNode importNode : cloneImports) {
       if (shouldTransformClass(importNode.getType())) {
