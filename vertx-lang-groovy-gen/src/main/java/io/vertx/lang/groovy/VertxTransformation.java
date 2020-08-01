@@ -83,7 +83,7 @@ public class VertxTransformation implements ASTTransformation {
 
   private void visit(ModuleNode moduleNode, SourceUnit sourceUnit) {
     List<ImportNode> cloneImports = new ArrayList<ImportNode>(moduleNode.getImports());    
-    moduleNode.getImports().clear();
+    //moduleNode.getImports().clear();
     for (ImportNode importNode : cloneImports) {
       if (shouldTransformClass(importNode.getType())) {
         moduleNode.addImport(importNode.getAlias(), rewriteType(importNode.getType()));
